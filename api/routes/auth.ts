@@ -2,7 +2,8 @@
  * This is a user authentication API route demo.
  * Handle user registration, login, token management, etc.
  */
-import { Router, type Request, type Response } from 'express'
+import { Router } from 'express'
+import type { Request, Response } from 'express-serve-static-core'
 import bcrypt from 'bcryptjs'
 import { z } from 'zod'
 import { randomUUID } from 'crypto'

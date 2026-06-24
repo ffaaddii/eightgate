@@ -1,4 +1,5 @@
-import { Router, type Request, type Response } from 'express'
+import { Router } from 'express'
+import type { Request, Response } from 'express-serve-static-core'
 import { z } from 'zod'
 import { randomUUID } from 'crypto'
 import bcrypt from 'bcryptjs'

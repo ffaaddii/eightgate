@@ -1,4 +1,4 @@
-import type { NextFunction, Request, RequestHandler, Response } from 'express'
+import type { NextFunction, Request, RequestHandler, Response } from 'express-serve-static-core'
 
 export function asyncHandler(
   fn: (req: Request, res: Response, next: NextFunction) => Promise<unknown>,

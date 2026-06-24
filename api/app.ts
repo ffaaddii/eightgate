@@ -2,10 +2,9 @@
  * This is a API server
  */
 
-import express, {
-  type Request,
-  type Response,
-} from 'express'
+import express from 'express'
+import type { Request, Response } from 'express-serve-static-core'
+import type {} from './types/express.d.ts'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
@@ -19,7 +18,7 @@ import auditRoutes from './routes/audit.js'
 // load env
 dotenv.config()
 
-const app: express.Application = express()
+const app = express()
 
 app.use(
   cors({
