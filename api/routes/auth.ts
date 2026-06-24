@@ -3,7 +3,7 @@
  * Handle user registration, login, token management, etc.
  */
 import { Router } from 'express'
-import type { Request, Response } from 'express-serve-static-core'
+import type { Request, Response } from 'express'
 import bcrypt from 'bcryptjs'
 import { z } from 'zod'
 import { randomUUID } from 'crypto'

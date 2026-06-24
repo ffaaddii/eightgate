@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import type { Request, Response } from 'express-serve-static-core'
+import type { Request, Response } from 'express'
 import type { RowDataPacket } from 'mysql2/promise'
 import { db } from '../db/pool.js'
 import { requireAuth, requirePermission } from '../auth/middleware.js'
