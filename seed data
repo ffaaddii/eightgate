@@ -1,0 +1,1 @@
+node -e "(async()=>{const r=await fetch('http://localhost:3001/api/auth/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username:'superadmin',password:'Admin@1234',deviceId:'dev-device'})}); console.log('status',r.status); console.log(await r.text());})().catch(e=>{console.error(e);process.exit(1)})"
