@@ -1,4 +1,4 @@
-import type { Request } from 'express'
+import type { Request } from 'express-serve-static-core'
 import { randomUUID } from 'crypto'
 import { db } from '../db/pool.js'
 import type { SessionUser } from '../auth/types.js'

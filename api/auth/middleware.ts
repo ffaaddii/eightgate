@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request, Response } from 'express-serve-static-core'
 import { hasPermission } from './permissions.js'
 import { SESSION_COOKIE_NAME, verifySession } from './session.js'
 import type { Permission, Role, SessionUser } from './types.js'
