@@ -19,7 +19,7 @@ export default function Login() {
   }, [location.state])
 
   const [username, setUsername] = useState('superadmin')
-  const [password, setPassword] = useState('Admin@1234')
+  const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
 
   if (status === 'authenticated') return <Navigate to={from} replace />
@@ -69,7 +69,7 @@ export default function Login() {
           </Button>
 
           <div className="text-xs text-[rgb(var(--muted))]">
-            حساب تجريبي افتراضي: <span className="font-medium">superadmin</span> / <span className="font-medium">Admin@1234</span>
+            يرجى الاحتفاظ بكلمة المرور <span className="font-medium"></span> / <span className="font-medium"></span>
           </div>
         </div>
       </Card>
