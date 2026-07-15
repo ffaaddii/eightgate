@@ -30,6 +30,7 @@ app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 app.use(cookieParser())
 app.use('/uploads', express.static(path.resolve(process.cwd(), 'uploads')))
+app.use(express.static(path.resolve(process.cwd(), 'dist')))
 
 /**
  * API Routes
@@ -141,13 +142,17 @@ app.use((error: Error, req: Request, res: Response) => {
 })
 
 /**
- * 404 handler
+ * React Router fallback (client-side routing)
  */
 app.use((req: Request, res: Response) => {
-  res.status(404).json({
-    success: false,
-    error: 'API not found',
-  })
+  if (req.path.startsWith('/api')) {
+    res.status(404).json({
+      success: false,
+      error: 'API not found',
+    })
+  } else {
+    res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'))
+  }
 })
 
 export default app

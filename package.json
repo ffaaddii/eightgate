@@ -13,7 +13,8 @@
     "server:dev": "nodemon",
     "db:setup": "tsx api/db/setup.ts",
     "test": "vitest run",
-    "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\""
+    "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
+    "start": "node api/server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
