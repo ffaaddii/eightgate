@@ -15,8 +15,16 @@ import usersRoutes from './routes/users.js'
 import hscodesRoutes from './routes/hscodes.js'
 import auditRoutes from './routes/audit.js'
 
-// load env
-dotenv.config()
+// load env from project root (cross-platform compatible)
+const currentFileUrl = new URL(import.meta.url);
+let currentFilePath = currentFileUrl.pathname;
+// Fix Windows path issue (remove leading / from /C:/...)
+if (process.platform === 'win32' && currentFilePath.startsWith('/')) {
+  currentFilePath = currentFilePath.slice(1);
+}
+const __dirname = path.dirname(currentFilePath);
+const projectRoot = path.resolve(__dirname, '..');
+dotenv.config({ path: path.join(projectRoot, '.env') });
 
 const app = express()
 
@@ -29,8 +37,8 @@ app.use(
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 app.use(cookieParser())
-app.use('/uploads', express.static(path.resolve(process.cwd(), 'uploads')))
-app.use(express.static(path.resolve(process.cwd(), 'dist')))
+app.use('/uploads', express.static(path.resolve(projectRoot, 'uploads')))
+app.use(express.static(path.resolve(projectRoot, 'dist')))
 
 /**
  * API Routes
@@ -151,7 +159,7 @@ app.use((req: Request, res: Response) => {
       error: 'API not found',
     })
   } else {
-    res.sendFile(path.resolve(process.cwd(), 'dist', 'index.html'))
+    res.sendFile(path.resolve(projectRoot, 'dist', 'index.html'))
   }
 })
 
